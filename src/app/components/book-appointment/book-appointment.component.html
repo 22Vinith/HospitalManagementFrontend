@@ -1,0 +1,39 @@
+
+<app-header></app-header>
+<div class="sign-in-cnt" style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
+    <div class="sign-in-inner-cnt">
+        <div class="sign-in-hedding-cnt">
+            <p style="font-size: 48px; color: orange; font-weight: bold; ">Hospital</p>
+            <br>
+            <p style="font-size: 38px;">Patient Login</p>
+        </div>
+        <br>
+        <div>
+            <form [formGroup]="bookAppointmentForm" style="display: flex; flex-direction: column;">
+                <mat-form-field style="width: 500px;">
+                    <mat-label>Ailment</mat-label>
+                    <input matInput formControlName="ailment" placeholder="Enter Your health isuue">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Choose a Doctor</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let doctor of doctorList" [value]="doctor">
+                        {{ doctor }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Choose a specialization</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let specialize of specializationList" [value]="specialize">
+                        {{ specialize }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+            </form>
+        </div>
+        <br>
+        <div class="sign-in-create-acc-btn-cnt" style="display: flex; justify-content: space-between;">
+            <button (click)="BookAppointment()">BookAppointment</button>
+        </div>

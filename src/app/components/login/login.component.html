@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="sign-in-cnt" style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
+    <div class="sign-in-inner-cnt">
+        <div class="sign-in-hedding-cnt">
+            <p style="font-size: 48px; color: orange; font-weight: bold; ">Hospital</p>
+            <br>
+            <p style="font-size: 38px;">Patient Login</p>
+        </div>
+        <br>
+        <div>
+            <form [formGroup]="loginForm" style="display: flex; flex-direction: column;">
+                <mat-form-field style="width: 500px;">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter your email">
+                    <mat-error *ngIf="loginForm.get('email')?.invalid">Invalid email</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" placeholder="Enter your password">
+                    <mat-error *ngIf="loginForm.get('password')?.invalid">Password must be at least 6
+                        characters</mat-error>
+                </mat-form-field>
+            </form>
+        </div>
+        <br>
+        <div class="sign-in-create-acc-btn-cnt" style="display: flex; justify-content: space-between;">
+            <button (click)="handleLogin()">Login</button>
+        </div>
