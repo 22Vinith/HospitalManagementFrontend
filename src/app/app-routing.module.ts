@@ -15,13 +15,14 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
-    path: 'book-appointment',
-    component: BookAppointmentComponent,
-    pathMatch: 'full',
-  },
-  {
     path: 'header',
     component: HeaderComponent,
+    children:[
+      {
+        path: 'book-appointment',
+        component: BookAppointmentComponent
+      }
+    ]
   },
 ];
 
