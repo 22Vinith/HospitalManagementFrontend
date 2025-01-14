@@ -42,4 +42,8 @@ export class HeaderComponent implements OnInit {
   handleProfile(){
     this.router.navigate(['profile']);
   }
+
+  handleHistory(){
+    this.router.navigate(['history']);
+  }
 }

@@ -5,6 +5,7 @@ import { BookAppointmentComponent } from './components/book-appointment/book-app
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileComponent
+  },
+  {
+    path:'history',
+    component:PatientHistoryComponent
   },
   {
     path: 'header',

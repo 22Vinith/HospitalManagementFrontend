@@ -23,6 +23,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatChipsModule} from '@angular/material/chips';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HeaderComponent,
     LoginComponent,
     ProfileComponent,
+    PatientHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatChipsModule
+    MatChipsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
