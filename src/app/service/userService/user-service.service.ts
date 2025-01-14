@@ -15,6 +15,15 @@ export class UserServiceService {
     console.log(header);
     return header
   }
+  getUserId(): string {
+    const token = localStorage.getItem('authToken'); // Replace 'authToken' with your token key
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+      return payload.id; // Adjust this based on your token structure
+    }
+    return '';
+  }
+
 
   registerApiCall(data:any){
     return this.httpService.postApiCall("http://localhost:3000/api/v1/patient/register",data)
@@ -34,5 +43,13 @@ export class UserServiceService {
 
   bookAppointmentApiCall(data:any={}){
     return this.httpService.postApiCall("http://localhost:3000/api/v1/patient/appointment",data,{headers: this.getAuthHeader()})
+  }
+
+  getPatientInfo(data:any={}){
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/patient/${data._id}/patientInfo`,{headers: this.getAuthHeader()})
+  }
+
+  updatePatientInfo(data:any={}){
+    return this.httpService.putApiCall(`http://localhost:3000/api/v1/patient/${data._id}/updatePatientInfo`,data,{headers: this.getAuthHeader()})
   }
 }

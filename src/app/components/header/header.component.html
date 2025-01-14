@@ -10,10 +10,10 @@
     <span>Welcome, User!</span>
     <button mat-button [matMenuTriggerFor]="menu">Login</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>profile</button>
+      <button mat-menu-item (click)="handleProfile()">profile</button>
       <button mat-menu-item>History</button>
       <button mat-menu-item>Invoice</button>
-      <button mat-menu-item>Logout</button>
+      <button mat-menu-item (click)="handleLogout()">Logout</button>
     </mat-menu>
   </div>
 </mat-toolbar>

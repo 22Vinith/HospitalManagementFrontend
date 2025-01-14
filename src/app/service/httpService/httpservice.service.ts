@@ -16,4 +16,8 @@ export class HttpserviceService {
   getAllApiCall(endpoint: string, options: any = {}): Observable<any>{
     return this.httpClient.get(endpoint,options)
   }
+
+  putApiCall(endpoint: string,data:any, options: any = {}){
+    return this.httpClient.put(endpoint,data,options)
+  }
 }

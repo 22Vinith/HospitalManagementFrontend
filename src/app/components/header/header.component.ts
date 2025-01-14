@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router:Router) {}
 
   ngOnInit(): void {
     // Check if user is logged in by verifying the presence of the token
@@ -36,5 +37,9 @@ export class HeaderComponent implements OnInit {
     console.log('Logging out');
     localStorage.removeItem('authToken'); // Remove the token
     this.isLoggedIn = false; // Update login status
+  }
+
+  handleProfile(){
+    this.router.navigate(['profile']);
   }
 }
