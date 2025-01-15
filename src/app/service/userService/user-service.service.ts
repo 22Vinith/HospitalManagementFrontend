@@ -74,5 +74,11 @@ export class UserServiceService {
   updatePrescriptionAndBill(data:any={}){
     return this.httpService.postApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/bill`,data,{headers: this.getAuthHeader()})
   }
+  getDoctorInfo(data:any={}){
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/doctorInfo`,{headers: this.getAuthHeader()})
+  }
+  updateDoctorInfo(data:any={}){
+    return this.httpService.putApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/updateDoctorInfo`,data,{headers: this.getAuthHeader()})
+  }
 
 }

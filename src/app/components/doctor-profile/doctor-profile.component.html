@@ -1,1 +1,31 @@
-<p>doctor-profile works!</p>
+
+<app-doctor-header></app-doctor-header>
+<div class="profile-container">
+  <h1>Doctor Profile</h1>
+
+  <!-- Show loading indicator -->
+  <div *ngIf="loading" class="loading">Loading Doctor details...</div>
+
+  <!-- Profile form -->
+  <form *ngIf="!loading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <input matInput formControlName="doctorId" placeholder="Doctor ID" readonly />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="name" placeholder="Doctor Name" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="email" placeholder="Email" readonly />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="specialization" placeholder="Specialization" readonly />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="profileForm.invalid || loading">
+      Update Profile
+    </button>
+  </form>
+</div>

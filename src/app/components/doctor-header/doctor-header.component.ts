@@ -35,12 +35,11 @@ export class DoctorHeaderComponent implements OnInit {
 
   handleLogout(): void {
     console.log('Logging out');
-    localStorage.removeItem('authToken'); // Remove the token
     this.isLoggedIn = false; // Update login status
   }
 
   handleProfile(){
-  
+    this.router.navigate(['doctorProfile']);
   }
 
   handleHistory(){
