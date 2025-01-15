@@ -26,6 +26,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { InvoiceComponent } from './components/invoice/invoice.component';
+import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
+import { DoctorHeaderComponent } from './components/doctor-header/doctor-header.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,9 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
     ProfileComponent,
     PatientHistoryComponent,
     InvoiceComponent,
+    DoctorRegisterComponent,
+    DoctorHeaderComponent,
+    DoctorLoginComponent,
   ],
   imports: [
     BrowserModule,

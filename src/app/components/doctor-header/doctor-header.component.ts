@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DoctorLoginComponent } from '../doctor-login/doctor-login.component';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-doctor-header',
+  templateUrl: './doctor-header.component.html',
+  styleUrls: ['./doctor-header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class DoctorHeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   constructor(public dialog: MatDialog, private router:Router) {}
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     if (this.isLoggedIn) return; // Prevent showing login dialog if already logged in
 
     console.log('Opening login dialog');
-    const dialogRef = this.dialog.open(LoginComponent, {
+    const dialogRef = this.dialog.open(DoctorLoginComponent, {
       width: '800px',
       height: '600px',
     });
@@ -35,19 +35,19 @@ export class HeaderComponent implements OnInit {
 
   handleLogout(): void {
     console.log('Logging out');
-    localStorage.removeItem('authToken'); 
-    localStorage.removeItem('appointmentId');
-    this.isLoggedIn = false; 
+    localStorage.removeItem('authToken'); // Remove the token
+    this.isLoggedIn = false; // Update login status
   }
 
   handleProfile(){
-    this.router.navigate(['profile']);
+  
   }
 
   handleHistory(){
-    this.router.navigate(['history']);
+ 
   }
-  handleInvoice(){
-    this.router.navigate(['invoice']);
-  }
+handleDashboard(){
+  
+}
+
 }

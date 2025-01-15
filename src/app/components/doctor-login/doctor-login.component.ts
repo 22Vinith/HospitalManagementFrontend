@@ -6,18 +6,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-doctor-login',
+  templateUrl: './doctor-login.component.html',
+  styleUrls: ['./doctor-login.component.scss']
 })
-export class LoginComponent {
+export class DoctorLoginComponent {
   loginForm!: FormGroup;
 
   constructor(
     private userService: UserServiceService,
     private router: Router,
     private snackBar: MatSnackBar,
-    @Optional() public dialogRef: MatDialogRef<LoginComponent>
+    @Optional() public dialogRef: MatDialogRef<DoctorLoginComponent>
   ) {}
 
   ngOnInit() {
@@ -39,10 +39,10 @@ export class LoginComponent {
 
     const { email, password } = this.loginForm.value;
 
-    this.userService.loginApiCall({ email, password }).subscribe({
+    this.userService.doctorLoginApiCall({ email, password }).subscribe({
       next: (res: any) => {
         localStorage.setItem('authToken', res.token);
-        this.router.navigate(['home']);
+        // this.router.navigate(['home']);
         this.snackBar.open('Login successful!', 'Close', {
           duration: 3000,
           horizontalPosition: 'center',
@@ -65,7 +65,7 @@ export class LoginComponent {
   }
 
   handleRegister(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['doctorRegister']);
     if (this.dialogRef) {
       this.dialogRef.close();
     }

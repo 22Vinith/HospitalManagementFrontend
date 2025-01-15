@@ -1,0 +1,40 @@
+.sign-in-cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .sign-in-inner-cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .app-title {
+    font-size: 48px;
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .app-subtitle {
+    font-size: 38px;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+   width: 500px;
+    justify-content: space-between;
+  }
+  

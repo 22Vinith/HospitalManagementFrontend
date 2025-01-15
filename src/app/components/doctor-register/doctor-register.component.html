@@ -3,31 +3,28 @@
         <div class="sign-in-hedding-cnt">
             <p style="font-size: 48px; color: orange; font-weight: bold; ">Hospital</p>
             <br>
-            <p style="font-size: 38px;">Patient Registration Form</p>
+            <p style="font-size: 38px;">Doctor Registration Form</p>
         </div>
         <br>
         <div>
             <form [formGroup]="registerForm" style="display: flex; flex-direction: column;">
 
                 <mat-form-field appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input matInput formControlName="name" placeholder="Enter your name">
+                    <mat-label>DoctorName</mat-label>
+                    <input matInput formControlName="doctor_name" placeholder="Enter your name">
                 </mat-form-field>
+                
                 <mat-form-field appearance="outline">
-                    <mat-label>Age</mat-label>
-                    <input matInput formControlName="age" placeholder="Enter your age">
-                    <mat-error *ngIf="registerForm.get('age')?.invalid">Invalid age</mat-error>
+                    <mat-label>Specialization</mat-label>
+                    <input matInput formControlName="specialization" placeholder="Enter your Specialization">
                 </mat-form-field>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" placeholder="Enter your email">
                     <mat-error *ngIf="registerForm.get('email')?.invalid">Invalid email</mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>PhoneNumber</mat-label>
-                    <input matInput formControlName="phno" placeholder="Enter your PhoneNumber">
-                    <mat-error *ngIf="registerForm.get('phno')?.invalid">Invalid PhoneNumber</mat-error>
-                </mat-form-field>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="password" placeholder="Enter your password">

@@ -25,7 +25,7 @@ export class InvoiceComponent implements OnInit {
 
   fetchBillDetails(appointmentId: string): void {
     // Assuming we have an API to get the bill by appointment ID
-    this.userService.getBillDetails({ _id: appointmentId }).subscribe({
+    this.userService.getBillDetails({ _id: appointmentId}).subscribe({
       next: (response: any) => {
         this.bill = response.bill;
         this.loading = false;

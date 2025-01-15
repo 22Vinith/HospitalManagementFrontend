@@ -7,6 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
+import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { DoctorHeaderComponent } from './components/doctor-header/doctor-header.component';
 
 const routes: Routes = [
   {
@@ -30,11 +33,23 @@ const routes: Routes = [
     component:InvoiceComponent
   },
   {
-    path: 'header',
+path:'doctorRegister',
+component:DoctorRegisterComponent
+  },
+  {
+path:'doctorLogin',
+component:DoctorLoginComponent
+  },
+  {
+path:'doctorHeader',
+component:DoctorHeaderComponent
+  },
+  {
+    path: 'home',
     component: HeaderComponent,
     children:[
       {
-        path: 'book-appointment',
+        path: '',
         component: BookAppointmentComponent
       }
     ]
