@@ -15,6 +15,7 @@ export class UserServiceService {
     console.log(header);
     return header
   }
+
   getUserId(): string {
     const token = localStorage.getItem('authToken'); // Replace 'authToken' with your token key
     if (token) {
@@ -64,4 +65,14 @@ export class UserServiceService {
   doctorLoginApiCall(data:any={}){
     return this.httpService.postApiCall("http://localhost:3000/api/v1/doctor/login",data)
   }
+  getAppointmentsByDoctor(data:any={}){
+    return this.httpService.getAllApiCall("http://localhost:3000/api/v1/doctor",{headers: this.getAuthHeader()})
+  }
+  updateAilmentStatus(data:any={}){
+    return this.httpService.putApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/update`,data,{headers: this.getAuthHeader()})
+  }
+  updatePrescriptionAndBill(data:any={}){
+    return this.httpService.postApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/bill`,data,{headers: this.getAuthHeader()})
+  }
+
 }

@@ -1,0 +1,24 @@
+<app-doctor-header></app-doctor-header>
+<div style="padding: 16px; max-width: 600px; margin: auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; background-color: #ffffff;">
+    <h2 style="text-align: center; margin-bottom: 24px;">Update Patient Status</h2>
+  
+    <p><strong>Appointment ID:</strong> {{ appointment._id }}</p>
+    <p><strong>Patient ID:</strong> {{ appointment.patient_id }}</p>
+    <p><strong>Ailment:</strong> {{ appointment.ailment }}</p>
+  
+    <mat-form-field style="width: 100%; margin-top: 16px;" appearance="outline">
+      <mat-label>Prescription</mat-label>
+      <textarea matInput [(ngModel)]="prescription" placeholder="Enter prescription"></textarea>
+    </mat-form-field>
+  
+    <mat-form-field style="width: 100%; margin-top: 16px;" appearance="outline">
+      <mat-label>Bill Amount</mat-label>
+      <input matInput [(ngModel)]="bill" placeholder="Enter bill amount" type="number" />
+    </mat-form-field>
+  
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px;">
+      <button mat-raised-button color="accent" (click)="cancelUpdate()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="submitUpdates()">Submit</button>
+    </div>
+  </div>
+  

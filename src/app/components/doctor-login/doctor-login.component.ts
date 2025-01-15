@@ -42,7 +42,7 @@ export class DoctorLoginComponent {
     this.userService.doctorLoginApiCall({ email, password }).subscribe({
       next: (res: any) => {
         localStorage.setItem('authToken', res.token);
-        // this.router.navigate(['home']);
+        this.router.navigate(['Home-appointments']);
         this.snackBar.open('Login successful!', 'Close', {
           duration: 3000,
           horizontalPosition: 'center',

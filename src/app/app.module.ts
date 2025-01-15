@@ -29,6 +29,10 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
 import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
 import { DoctorHeaderComponent } from './components/doctor-header/doctor-header.component';
 import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { DoctorAppointmentsComponent } from './components/doctor-appointments/doctor-appointments.component';
+import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
+import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +46,10 @@ import { DoctorLoginComponent } from './components/doctor-login/doctor-login.com
     DoctorRegisterComponent,
     DoctorHeaderComponent,
     DoctorLoginComponent,
+    DoctorAppointmentsComponent,
+    UpdatePatientComponent,
+    DoctorProfileComponent,
+  
   ],
   imports: [
     BrowserModule,

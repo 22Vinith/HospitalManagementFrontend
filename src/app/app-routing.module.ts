@@ -10,6 +10,9 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
 import { DoctorRegisterComponent } from './components/doctor-register/doctor-register.component';
 import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 import { DoctorHeaderComponent } from './components/doctor-header/doctor-header.component';
+import { DoctorAppointmentsComponent } from './components/doctor-appointments/doctor-appointments.component';
+import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
+import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
 
 const routes: Routes = [
   {
@@ -41,8 +44,22 @@ path:'doctorLogin',
 component:DoctorLoginComponent
   },
   {
-path:'doctorHeader',
-component:DoctorHeaderComponent
+    path:'doctorProfile',
+    component:DoctorProfileComponent
+      },
+  {
+    path:'update-status',
+    component:UpdatePatientComponent
+     },
+  {
+path:'Home-appointments',
+component:DoctorHeaderComponent,
+children:[
+  {
+    path:'',
+    component:DoctorAppointmentsComponent
+  }
+]
   },
   {
     path: 'home',
