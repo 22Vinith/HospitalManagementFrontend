@@ -46,4 +46,7 @@ export class HeaderComponent implements OnInit {
   handleHistory(){
     this.router.navigate(['history']);
   }
+  handleInvoice(){
+    this.router.navigate(['invoice']);
+  }
 }

@@ -55,4 +55,7 @@ export class UserServiceService {
   getPatientAppointments(data:any={}){
     return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/patient/${data._id}/appointments`,{headers: this.getAuthHeader()})
   }
+  getBillDetails(data:any={}){
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/patient/${data._id}/bill`,{headers: this.getAuthHeader()})
+  }
 }

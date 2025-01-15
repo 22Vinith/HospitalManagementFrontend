@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'history',
     component:PatientHistoryComponent
+  },
+  {
+    path:'invoice',
+    component:InvoiceComponent
   },
   {
     path: 'header',

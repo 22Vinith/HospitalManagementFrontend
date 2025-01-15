@@ -25,6 +25,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PatientHistoryComponent } from './components/patient-history/patient-history.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     LoginComponent,
     ProfileComponent,
     PatientHistoryComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,

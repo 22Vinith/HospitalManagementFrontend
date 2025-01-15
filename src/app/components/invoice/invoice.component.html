@@ -1,0 +1,27 @@
+<div *ngIf="loading" class="loading-message">Loading...</div>
+
+<div *ngIf="!loading" class="invoice-container">
+  <h2>Invoice</h2>
+  
+  <div class="invoice-header">
+    <div class="invoice-detail">
+      <h3>Appointment ID: {{ bill.appointment_id }}</h3>
+      <p><strong>Doctor ID:</strong> {{ bill.doctor_id }}</p>
+      <p><strong>Prescription:</strong> {{ bill.prescription }}</p>
+      <p><strong>Invoice Amount:</strong> {{ bill.invoice }}</p>
+    </div>
+    
+    <div class="date-time">
+      <p><strong>Invoice Date:</strong> {{ bill.createdAt | date: 'longDate' }}</p>
+      <p><strong>Last Updated:</strong> {{ bill.updatedAt | date: 'longDate' }}</p>
+    </div>
+  </div>
+  
+  <hr>
+
+  <div class="invoice-footer">
+    <p><strong>Note:</strong> Please make sure to consult your doctor regularly for updates on your health.</p>
+    <p><strong>Thank you for choosing our services!</strong></p>
+  </div>
+</div>
+

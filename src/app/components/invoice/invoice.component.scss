@@ -1,0 +1,48 @@
+.invoice-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .invoice-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .invoice-detail {
+    flex: 1;
+  }
+  
+  .date-time {
+    text-align: right;
+    padding-top: 20px;
+  }
+  
+  .invoice-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  

@@ -73,6 +73,7 @@ export class BookAppointmentComponent implements OnInit {
 
       this.userService.bookAppointmentApiCall(appointmentData).subscribe({
         next: (res: any) => {
+          localStorage.setItem('appointmentId',res.data.appointment._id)
           console.log('Appointment booked successfully', res);
 
           // Show success snackbar
