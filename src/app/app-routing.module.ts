@@ -15,6 +15,7 @@ import { UpdatePatientComponent } from './components/update-patient/update-patie
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
 import { DoctorHistoryComponent } from './components/doctor-history/doctor-history.component';
 import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'adminRegistration',
     component: AdminRegistrationComponent,
+  },
+  {
+    path: 'adminLogin',
+    component: AdminLoginComponent,
   },
   {
     path: 'doctorRegister',

@@ -9,7 +9,7 @@
     font-family: Arial, sans-serif; 
   }
   
-  .admin-registration-container {
+  .admin-login-container {
     max-width: 400px;
     margin: auto;
     padding: 20px;
@@ -19,21 +19,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
   
-    .full-width {
-      width: 100%;
-    }
-  
-    button {
-      width: 100%;
-      margin-top: 20px;
-    }
-  
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
 
-.login-link {
+.register-link {
     margin-top: 20px;
     text-align: center;
   
@@ -47,9 +34,22 @@
     }
   }
   
-    .success {
-      color: green;
+
+    .full-width {
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .error {
+      color: red;
       margin-top: 10px;
     }
   }
+ 
+
+  
   

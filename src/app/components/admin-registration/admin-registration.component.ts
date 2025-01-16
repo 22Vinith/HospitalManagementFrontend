@@ -28,7 +28,7 @@ export class AdminRegistrationComponent implements OnInit {
   
       this.userService.adminSignUp(adminData).subscribe({
         next: (response: any) => {
-          console.log('Response:', response); // Debug response structure
+          console.log('Response:', response); 
           if (response.code === 201) {
             this.successMessage = response.message;
             this.errorMessage = null;

@@ -28,6 +28,14 @@
       </button>
     </form>
   
+    <!-- Add Login Button -->
+    <div class="login-link">
+      <p>Already have an account?</p>
+      <button mat-raised-button color="accent" [routerLink]="['/adminLogin']">
+        Login
+      </button>
+    </div>
+  
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
   </div>
