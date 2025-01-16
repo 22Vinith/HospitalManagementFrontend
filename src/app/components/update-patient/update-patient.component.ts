@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-update-patient',
@@ -15,7 +16,8 @@ export class UpdatePatientComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private location:Location
   ) {
     const state = this.router.getCurrentNavigation()?.extras.state;
     this.appointment = state ? state['appointment'] || {} : {};
@@ -25,7 +27,7 @@ export class UpdatePatientComponent implements OnInit {
 
   // Cancel the update and navigate back
   cancelUpdate(): void {
-    this.router.navigate(['doctorAppointments']);
+  this.location.back()
   }
 
   // Submit updates

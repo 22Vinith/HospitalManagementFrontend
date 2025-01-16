@@ -80,5 +80,8 @@ export class UserServiceService {
   updateDoctorInfo(data:any={}){
     return this.httpService.putApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/updateDoctorInfo`,data,{headers: this.getAuthHeader()})
   }
+  fetchPatientNameById(data:any={}){
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/doctor/${data._id}/patient`,{headers: this.getAuthHeader()})
+  }
 
 }

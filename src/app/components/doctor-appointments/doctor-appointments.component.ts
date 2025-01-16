@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/app/service/userService/user-service.ser
 })
 export class DoctorAppointmentsComponent implements OnInit {
   appointments: any[] = []; 
-
+  
   constructor(private appointmentService: UserServiceService, private router: Router) {}
 
   ngOnInit(): void {
@@ -22,7 +22,9 @@ export class DoctorAppointmentsComponent implements OnInit {
     this.appointmentService.getAppointmentsByDoctor().subscribe({
       next: (response: any) => {
         if (response.code === 200) {
+          
           this.appointments = response.appointments;
+          console.log(this.appointments)
         } else {
           console.error('Unexpected response:', response.message);
         }
@@ -32,6 +34,7 @@ export class DoctorAppointmentsComponent implements OnInit {
       },
     });
   }
+
 
   // Handle Attend Button
   attendAppointment(appointment: any): void {
