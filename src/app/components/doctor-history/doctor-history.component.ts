@@ -16,13 +16,15 @@ export class DoctorHistoryComponent implements OnInit {
     this.fetchAppointments();
   }
 
-  // API call to fetch all appointments
   fetchAppointments(): void {
     this.appointmentService.getAppointmentsByDoctor().subscribe({
       next: (response: any) => {
         if (response.code === 200) {
-          this.appointments = response.appointments; // No filter, fetching all
-          console.log('All appointments:', this.appointments);
+          // Filter appointments where ailment_status is true (i.e., cured patients)
+          this.appointments = response.appointments.filter(
+            (appointment: any) => appointment.ailment_status === true
+          );
+          console.log('Cured appointments:', this.appointments);
         } else {
           console.error('Unexpected response:', response.message);
         }
@@ -34,4 +36,5 @@ export class DoctorHistoryComponent implements OnInit {
       },
     });
   }
+  
 }

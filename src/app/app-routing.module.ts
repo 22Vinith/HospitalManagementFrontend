@@ -14,11 +14,13 @@ import { DoctorAppointmentsComponent } from './components/doctor-appointments/do
 import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
 import { DoctorHistoryComponent } from './components/doctor-history/doctor-history.component';
+import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
 
 const routes: Routes = [
   {
     path: '',
     component: registerComponent,
+    pathMatch:'full'
   },
   {
     path: 'login',
@@ -35,6 +37,10 @@ const routes: Routes = [
   {
     path: 'invoice',
     component: InvoiceComponent,
+  },
+  {
+    path: 'adminRegistration',
+    component: AdminRegistrationComponent,
   },
   {
     path: 'doctorRegister',
