@@ -8,19 +8,19 @@
 
   <!-- Profile form -->
   <form *ngIf="!loading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="full-width">
+    <mat-form-field appearance="outline" class="full-width">
       <input matInput formControlName="doctorId" placeholder="Doctor ID" readonly />
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field appearance="outline" class="full-width">
       <input matInput formControlName="name" placeholder="Doctor Name" required />
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field appearance="outline" class="full-width">
       <input matInput formControlName="email" placeholder="Email" readonly />
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field appearance="outline" class="full-width">
       <input matInput formControlName="specialization" placeholder="Specialization" readonly />
     </mat-form-field>
 

@@ -34,7 +34,7 @@ export class DoctorHeaderComponent implements OnInit {
   }
 
   handleLogout(): void {
-    console.log('Logging out');
+    localStorage.removeItem('authToken');
     this.isLoggedIn = false; // Update login status
   }
 
@@ -43,7 +43,7 @@ export class DoctorHeaderComponent implements OnInit {
   }
 
   handleHistory(){
- 
+    this.router.navigate(['doctorHistory']);
   }
 handleDashboard(){
   

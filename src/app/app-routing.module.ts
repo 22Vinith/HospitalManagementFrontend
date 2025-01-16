@@ -13,6 +13,7 @@ import { DoctorHeaderComponent } from './components/doctor-header/doctor-header.
 import { DoctorAppointmentsComponent } from './components/doctor-appointments/doctor-appointments.component';
 import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
+import { DoctorHistoryComponent } from './components/doctor-history/doctor-history.component';
 
 const routes: Routes = [
   {
@@ -20,56 +21,60 @@ const routes: Routes = [
     component: registerComponent,
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'profile',
-    component:ProfileComponent
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
-    path:'history',
-    component:PatientHistoryComponent
+    path: 'history',
+    component: PatientHistoryComponent,
   },
   {
-    path:'invoice',
-    component:InvoiceComponent
+    path: 'invoice',
+    component: InvoiceComponent,
   },
   {
-path:'doctorRegister',
-component:DoctorRegisterComponent
+    path: 'doctorRegister',
+    component: DoctorRegisterComponent,
   },
   {
-path:'doctorLogin',
-component:DoctorLoginComponent
+    path: 'doctorLogin',
+    component: DoctorLoginComponent,
   },
   {
-    path:'doctorProfile',
-    component:DoctorProfileComponent
+    path: 'doctorProfile',
+    component: DoctorProfileComponent,
+  },
+  {
+    path: 'update-status',
+    component: UpdatePatientComponent,
+  },
+  {
+    path: 'doctorHistory',
+    component: DoctorHistoryComponent,
+  },
+  {
+    path: 'Home-appointments',
+    component: DoctorHeaderComponent,
+    children: [
+      {
+        path: '',
+        component: DoctorAppointmentsComponent,
       },
-  {
-    path:'update-status',
-    component:UpdatePatientComponent
-     },
-  {
-path:'Home-appointments',
-component:DoctorHeaderComponent,
-children:[
-  {
-    path:'',
-    component:DoctorAppointmentsComponent
-  }
-]
+    ],
   },
   {
     path: 'home',
     component: HeaderComponent,
-    children:[
+    children: [
       {
         path: '',
-        component: BookAppointmentComponent
-      }
-    ]
+        component: BookAppointmentComponent,
+      },
+    ],
   },
 ];
 

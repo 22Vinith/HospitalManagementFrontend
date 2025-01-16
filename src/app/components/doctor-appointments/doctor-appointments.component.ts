@@ -16,15 +16,14 @@ export class DoctorAppointmentsComponent implements OnInit {
     this.fetchAppointments();
   }
 
-  //api call to fetch all appointmnets
+  // API call to fetch all appointments
   fetchAppointments(): void {
-
     this.appointmentService.getAppointmentsByDoctor().subscribe({
       next: (response: any) => {
         if (response.code === 200) {
-          
-          this.appointments = response.appointments;
-          console.log(this.appointments)
+          // Filter appointments where ailment_status is false
+          this.appointments = response.appointments.filter((appointment: any) => !appointment.ailment_status);
+          console.log('Filtered appointments:', this.appointments);
         } else {
           console.error('Unexpected response:', response.message);
         }
@@ -34,7 +33,6 @@ export class DoctorAppointmentsComponent implements OnInit {
       },
     });
   }
-
 
   // Handle Attend Button
   attendAppointment(appointment: any): void {

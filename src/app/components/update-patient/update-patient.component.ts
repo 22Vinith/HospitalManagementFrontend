@@ -57,7 +57,7 @@ export class UpdatePatientComponent implements OnInit {
       console.log('Prescription and bill updated successfully.');
   
       alert('Patient details updated successfully.');
-      this.router.navigate(['doctorAppointments']);
+      this.router.navigate(['Home-appointments']);
     } catch (error) {
       console.error('Error updating details:', error);
       alert('Failed to update patient details. Please try again.');
