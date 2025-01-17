@@ -35,6 +35,9 @@ import { DoctorProfileComponent } from './components/doctor-profile/doctor-profi
 import { DoctorHistoryComponent } from './components/doctor-history/doctor-history.component';
 import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doctors.component';
+
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     DoctorHistoryComponent,
     AdminRegistrationComponent,
     AdminLoginComponent,
+    AddDoctorComponent,
+    GetAllDoctorsComponent
+
   
   ],
   imports: [

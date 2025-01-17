@@ -1,0 +1,28 @@
+h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  
+  p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #005bb5;
+  }
+  
+  div {
+    transition: all 0.3s ease-in-out;
+  }
+  

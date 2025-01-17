@@ -16,6 +16,8 @@ import { DoctorProfileComponent } from './components/doctor-profile/doctor-profi
 import { DoctorHistoryComponent } from './components/doctor-history/doctor-history.component';
 import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doctors.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'adminLogin',
     component: AdminLoginComponent,
+  },
+  {
+    path: 'addDoctor',
+    component: AddDoctorComponent,
+  },
+  {
+    path: 'getDoctor',
+    component: GetAllDoctorsComponent,
   },
   {
     path: 'doctorRegister',

@@ -86,4 +86,14 @@ export class UserServiceService {
   adminLogin(data:any={}){
     return this.httpService.postApiCall("http://localhost:3000/api/v1/admin/login",data)
   }
+  addDoctorByEmail(data:any={}){
+    return this.httpService.postApiCall("http://localhost:3000/api/v1/admin/add",data,{headers: this.getAuthHeader()})
+  }
+  getAllAppointments(data:any={}){
+    console.log(data)
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/doctor/get-appointment/${data._id}/admin`,{headers: this.getAuthHeader()},)
+  }
+  getAllDoctors(data:any={}){
+    return this.httpService.getAllApiCall(`http://localhost:3000/api/v1/admin`,{headers: this.getAuthHeader()})
+  }
 }

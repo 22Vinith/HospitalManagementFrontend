@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/service/userService/user-service.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -11,7 +12,7 @@ export class AdminLoginComponent implements OnInit {
   adminLoginForm: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService) {
+  constructor(private fb: FormBuilder, private userService: UserServiceService,private router:Router) {
     this.adminLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -28,6 +29,7 @@ export class AdminLoginComponent implements OnInit {
       this.userService.adminLogin(loginData).subscribe({
         next: (response: any) => {
           localStorage.setItem('authToken', response.token);
+          this.router.navigate(['getDoctor'])
           console.log('Login Success:', response);
         },
         error: (err) => {

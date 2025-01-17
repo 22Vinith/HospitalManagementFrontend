@@ -1,0 +1,20 @@
+<div class="add-doctor-container">
+    <h2>Add Doctor</h2>
+    <form [formGroup]="addDoctorForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Doctor's Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter doctor's email" />
+        <mat-error *ngIf="addDoctorForm.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="addDoctorForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="addDoctorForm.invalid">
+        Add Doctor
+      </button>
+    </form>
+  
+    <!-- Success or Error Message -->
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </div>
+  

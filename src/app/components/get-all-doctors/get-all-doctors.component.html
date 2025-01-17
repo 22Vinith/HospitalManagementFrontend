@@ -1,0 +1,41 @@
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem;">
+    <div
+      *ngFor="let doctor of doctorDetails"
+      style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px; width: 300px;"
+    >
+      <h3>{{ doctor.doctor_name }}</h3>
+      <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+      <p><strong>Email:</strong> {{ doctor.email }}</p>
+  
+      <button (click)="toggleAppointments(doctor._id)" style="margin-top: 1rem;">
+        {{ expandedDoctor === doctor._id ? 'Hide Details' : 'View Details' }}
+      </button>
+
+      <div *ngIf="expandedDoctor === doctor._id" style="margin-top: 1rem;">
+        <h4>Appointments:</h4>
+        <div *ngIf="appointments[doctor._id] && appointments[doctor._id].length > 0; else noAppointments">
+          <div
+            *ngFor="let appointment of appointments[doctor._id]"
+            style="border: 1px solid #ddd; padding: 0.5rem; margin-bottom: 0.5rem;"
+          >
+            <p><strong>Patient Name:</strong> {{ appointment.patientName }}</p>
+            <p><strong>Ailment:</strong> {{ appointment.ailment }}</p>
+            <p>
+              <strong>Status:</strong> {{ appointment.ailment_status ? 'Resolved' : 'Pending' }}
+            </p>
+          </div>
+        </div>
+        <ng-template #noAppointments>
+          <p>No appointments available for this doctor.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  
+  <button
+    (click)="goToAddDoctor()"
+    style="position: fixed; bottom: 20px; right: 20px; background-color: #4CAF50; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 24px;"
+  >
+    +
+  </button>
+  
