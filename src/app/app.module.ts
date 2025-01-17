@@ -37,6 +37,7 @@ import { AdminRegistrationComponent } from './components/admin-registration/admi
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doctors.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 
 
 
@@ -60,7 +61,8 @@ import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doc
     AdminRegistrationComponent,
     AdminLoginComponent,
     AddDoctorComponent,
-    GetAllDoctorsComponent
+    GetAllDoctorsComponent,
+    AdminHeaderComponent
 
   
   ],

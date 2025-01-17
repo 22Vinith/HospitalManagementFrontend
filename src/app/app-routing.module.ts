@@ -18,6 +18,7 @@ import { AdminRegistrationComponent } from './components/admin-registration/admi
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doctors.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'getDoctor',
     component: GetAllDoctorsComponent,
+  },
+  {
+    path: 'adminHeader',
+    component: AdminHeaderComponent,
   },
   {
     path: 'doctorRegister',

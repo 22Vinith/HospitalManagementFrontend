@@ -31,7 +31,6 @@ export class AddDoctorComponent implements OnInit {
     this.doctorService.addDoctorByEmail({email}).subscribe({
       next: (response) => {
         console.log(response);
-        this.router.navigate(['getDoctor'])
         this.successMessage = 'Successfully added doctor.';
         this.errorMessage = ''; 
       },

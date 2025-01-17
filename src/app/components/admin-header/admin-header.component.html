@@ -1,0 +1,21 @@
+<mat-toolbar style="height: 100px; display: flex; justify-content: space-between;">
+    <span>Hospital-Management</span>
+  
+    <!-- Conditionally render the Login button or the menu -->
+    <div *ngIf="!isLoggedIn">
+      <button mat-raised-button color="primary" (click)="handleLogin()">Login</button>
+    </div>
+  
+    <div *ngIf="isLoggedIn">
+      <span>Welcome, Admin!</span>
+      <button mat-button [matMenuTriggerFor]="menu">Login</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="handleDoctors()">See All Doctors </button>
+        <button mat-menu-item (click)="handleLogout()">Logout</button>
+
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+  

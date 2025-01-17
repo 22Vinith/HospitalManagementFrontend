@@ -29,7 +29,7 @@ export class AdminLoginComponent implements OnInit {
       this.userService.adminLogin(loginData).subscribe({
         next: (response: any) => {
           localStorage.setItem('authToken', response.token);
-          this.router.navigate(['getDoctor'])
+          this.router.navigate(['addDoctor'])
           console.log('Login Success:', response);
         },
         error: (err) => {
