@@ -20,6 +20,11 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
 const routes: Routes = [
  
   {
+    path:'login',
+component:LoginComponent
+  },
+  
+  {
       path: '',
       component: HeaderComponent,
       children:[

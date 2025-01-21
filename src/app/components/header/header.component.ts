@@ -6,7 +6,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { LoginComponent } from '../login/login.component';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,8 +14,16 @@ import { LoginComponent } from '../login/login.component';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(public dialog: MatDialog, private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer,private router:Router) {
-    iconRegistry.addSvgIconLiteral('mainmenu-icon', sanitizer.bypassSecurityTrustHtml(MENU_ICON));
+  constructor(
+    public dialog: MatDialog,
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+    private router: Router
+  ) {
+    iconRegistry.addSvgIconLiteral(
+      'mainmenu-icon',
+      sanitizer.bypassSecurityTrustHtml(MENU_ICON)
+    );
   }
 
   ngOnInit(): void {
@@ -24,16 +31,26 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = !!localStorage.getItem('authToken');
   }
 
+  // handleLogin(): void {
+  //   if (this.isLoggedIn) return; // Prevent showing login dialog if already logged in
+
+  //   console.log('Opening login dialog');
+  //   const dialogRef = this.dialog.open(LoginComponent, {
+  //     width: '700px',
+  //     height: '700px',
+  //   });
+
+  //   // After the dialog closes, recheck login status
+  //   dialogRef.afterClosed().subscribe(() => {
+  //     this.isLoggedIn = !!localStorage.getItem('authToken');
+  //   });
+  // }
   handleLogin(): void {
-    if (this.isLoggedIn) return; // Prevent showing login dialog if already logged in
+    if (this.isLoggedIn) return;
 
     console.log('Opening login dialog');
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '1200px',
-      height: '700px',
-    });
+    const dialogRef = this.dialog.open(LoginComponent, {});
 
-    // After the dialog closes, recheck login status
     dialogRef.afterClosed().subscribe(() => {
       this.isLoggedIn = !!localStorage.getItem('authToken');
     });
@@ -41,20 +58,20 @@ export class HeaderComponent implements OnInit {
 
   handleLogout(): void {
     console.log('Logging out');
-    localStorage.removeItem('authToken'); 
+    localStorage.removeItem('authToken');
     localStorage.removeItem('appointmentId');
     this.router.navigate(['']);
-    this.isLoggedIn = false; 
+    this.isLoggedIn = false;
   }
 
-  handleProfile(){
+  handleProfile() {
     this.router.navigate(['/profile']);
   }
 
-  handleHistory(){
+  handleHistory() {
     this.router.navigate(['/history']);
   }
-  handleInvoice(){
+  handleInvoice() {
     this.router.navigate(['/invoice']);
   }
 }

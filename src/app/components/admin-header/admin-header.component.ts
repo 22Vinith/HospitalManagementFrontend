@@ -6,19 +6,19 @@ import { AdminLoginComponent } from '../admin-login/admin-login.component';
 @Component({
   selector: 'app-admin-header',
   templateUrl: './admin-header.component.html',
-  styleUrls: ['./admin-header.component.scss']
+  styleUrls: ['./admin-header.component.scss'],
 })
 export class AdminHeaderComponent implements OnInit {
- isLoggedIn: boolean = false;
+  isLoggedIn: boolean = false;
 
-  constructor(public dialog: MatDialog, private router:Router) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!localStorage.getItem('authToken');
   }
 
   handleLogin(): void {
-    if (this.isLoggedIn) return; 
+    if (this.isLoggedIn) return;
 
     console.log('Opening login dialog');
     const dialogRef = this.dialog.open(AdminLoginComponent, {
@@ -33,12 +33,10 @@ export class AdminHeaderComponent implements OnInit {
 
   handleLogout(): void {
     localStorage.removeItem('authToken');
-    this.isLoggedIn = false; 
-    this.router.navigate(['adminLogin'])
+    this.isLoggedIn = false;
+    this.router.navigate(['adminLogin']);
   }
-  handleDoctors(){
-    this.router.navigate(['/getAllDoctors'])
+  handleDoctors() {
+    this.router.navigate(['/getAllDoctors']);
   }
-
-
 }

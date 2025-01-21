@@ -1,36 +1,46 @@
 .book-appointment-container {
-    position: relative;
-    padding: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
-  
+    // position: relative;
+    // padding: 20px;
+    // margin-left: 100px;
+    // margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    margin: auto;
+    width: 68%;
+    margin-top: 70px;
+}
     /* Small card in the top-left corner */
     .top-left-card {
-      position: relative;
-      top: 20px;
-      left: 20px;
+      // position: relative;
+      // top: 20px;
+      // left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #f5f5f5;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-bottom: none;
+      border-radius: 8px 8px 0px 0px;
       padding: 10px 15px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       font-size: 14px;
       font-weight: bold;
       width: 140px;
-      margin-left: 300px;
+      // margin-left: 300px;
     }
     .border{
+
       border: 1px solid #ddd;
-      width: 700px;
-      margin-left: 325px;
-      margin-top: 19px;
+      width: 100%;
     }
   
     .sign-in-cnt {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 50px;
   
       .sign-in-inner-cnt {
         padding: 20px;
@@ -71,5 +81,5 @@
         }
       }
     }
-  }
+  
   

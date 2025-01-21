@@ -1,72 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-.loginsignup-container {
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  // gap: 2em;
-  padding: 5vh;
-  flex-wrap: nowrap;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.loginsignup-main-cnt{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 750px; //1
+  // height: 500px;
+}
+
+.loginsignup-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   font-family: 'Roboto', Arial, sans-serif;
-  min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  // height: 100%;
 }
 
 .loginsignup-image-card {
-  width: 25%;
-  min-height: 50vh;
+  width:60%; //2
+  height: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgb(250, 248, 248);
-  border-radius: 0.5em;
-  box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
-  padding: 2em;
-  transition: transform 0.3s ease-in-out;
+  background-color: #f5f5f5;
+  border-radius: 8px 0 0 8px;
+  padding: 2rem;  
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .loginsignup-image {
-  width: 15em;
-  height: 15em;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
   object-fit: cover;
 }
 
 .loginsignup-caption {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #2196F3;
+  margin: 1rem 0;
 }
-
 .loginsignup-form-card {
-  width: 28%;
+  width: 100%;
   background-color: white;
-  border-radius: 0.5em;
-  box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.1);
-  padding: 4em;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 40vh;
+  border-radius: 8px 8px 8px 8px;
+  padding: 1.5rem;
 }
 
 .loginsignup-tabs {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 .loginsignup-tab {
-  padding: 0.5em 1em;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: bold;
   color: #666;
-  font-size: 1.6em;
+  font-size: 1.2rem;
   position: relative;
 
   &.active {
@@ -74,10 +92,10 @@
     &:after {
       content: '';
       position: absolute;
-      bottom: -0.2em;
+      bottom: -0.2rem;
       left: 0;
       width: 100%;
-      height: 0.2em;
+      height: 2px;
       background-color: #2196F3;
     }
   }
@@ -87,123 +105,65 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-  }
+    gap: 0.3rem;
+    width: 250px;
+    // height: 500px;
 
-  label {
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 0.5em;
-  }
-
-  input {
-    width: 100%;
-    padding: 0.8em;
-    border: 0.1em solid #ccc;
-    border-radius: 0.2em;
-    font-size: 1em;
-    height: 15px;
-    transition: border-color 0.3s ease;
-
-    &:focus {
-      outline: none;
-      border-color: #2196F3;
-    }
   }
 }
 
-.loginsignup-form-button {
-  width: 100%;
-  padding: 1em;
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 0.2em;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+.full-width {
+  width: 150%;
+}
 
-  &:hover {
-    background-color: #1976D2;
-  }
+.loginsignup-form-button {
+  width: 150%;
+  margin-top: 0.3rem;
 }
 
 .or-container {
   display: flex;
   align-items: center;
-  margin: 2em 0;
+  margin: 1rem 0;
+  width: 150%;
+
+
 }
 
 .or-line {
   flex-grow: 1;
   height: 1px;
   background-color: #ccc;
+  margin-top: 26px;
 }
 
 .or-text {
-  margin: 0 1em;
+  margin: 0 1rem;
   color: #666;
+  margin-top: 26px;
 }
 
 .social-buttons {
   display: flex;
-  gap: 1em;
+  gap: 1rem;
+  width: 150%;
 }
 
 .social-btn {
   flex: 1;
-  padding: 0.8em;
-  border: none;
-  border-radius: 0.2em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 0.9;
-  }
+  // margin-top: 20px;
 }
 
 .facebook-btn {
   background-color: #1877F2;
   color: white;
+  height: 4%;
+  margin-top: 26px;
 }
 
 .google-btn {
   background-color: #DB4437;
   color: white;
-}
-
-.error-message {
-  color: #f44336;
-  font-size: 0.8em;
-  margin-top: 0.2em;
-}
-
-.forgot-password-container {
-  text-align: right;
-  margin-top: 0.5em;
-}
-
-.forgot-password-link {
-  color: #2196F3;
-  cursor: pointer;
-  font-size: 0.9em;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.full-width {
-  width: 100%;
-  height: 60px;
-  position: relative;
-  margin-bottom: 15px;
-}
-
-.loginsignup-form-button {
-  width: 100%;
-  margin-top: 10px;
+  height: 4%;
+  margin-top: 26px;
 }

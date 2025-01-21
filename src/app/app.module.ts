@@ -37,6 +37,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { GetAllDoctorsComponent } from './components/get-all-doctors/get-all-doctors.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
+import { MatCardModule } from "@angular/material/card"
 
 
 
@@ -81,7 +82,8 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
     MatNativeDateModule,
     MatChipsModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule, 
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
