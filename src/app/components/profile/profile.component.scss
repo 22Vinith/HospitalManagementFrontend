@@ -1,64 +1,121 @@
+/* Main layout container */
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* Left section for small card and breadcrumb */
+.left-section {
+  position: absolute;
+  top: 120px; /* Adjust to appear below the header */
+  left: 20px; /* Fixed to the left side */
+  display: flex;
+  flex-direction: column;
+  z-index: 1; /* Ensure it appears above other elements */
+  margin-left: 520px;
+  margin-top: 60px;
+}
+
+/* Small card styles */
+.small-card {
+  padding: 8px 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  width: fit-content;
+  text-align: center;
+}
+.border{
+  border: 1px solid #ddd;
+  width: 540px;
+  margin-left: 9px;
+  margin-bottom: 3px;
+}
+
+/* Breadcrumb Styles */
+.breadcrumb-container {
+  padding: 0.5rem 1rem;
+  // background-color: #f9f9f9;
+  border-radius: 8px;
+  // margin: 10px auto;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 14px;
+  max-width: 600px;
+  margin-left: 52px;
+}
+
+/* Profile Form Styles */
 .profile-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-  
-    input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-  
-    input:focus {
-      border-color: #007bff;
-      outline: none;
-    }
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  
-    &:hover {
-      background-color: #0056b3;
-    }
-  
-    &:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-  }
-  
+  max-width: 600px;
+  // margin: 90px auto;
+  margin-top: 160px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Age and Phone Number in the same row */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1; /* Allow fields to share space evenly */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

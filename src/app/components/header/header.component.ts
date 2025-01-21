@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MENU_ICON } from 'src/assets/svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-header',
@@ -11,7 +15,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(public dialog: MatDialog, private router:Router) {}
+  constructor(public dialog: MatDialog, private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer,private router:Router) {
+    iconRegistry.addSvgIconLiteral('mainmenu-icon', sanitizer.bypassSecurityTrustHtml(MENU_ICON));
+  }
 
   ngOnInit(): void {
     // Check if user is logged in by verifying the presence of the token
@@ -23,8 +29,8 @@ export class HeaderComponent implements OnInit {
 
     console.log('Opening login dialog');
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '800px',
-      height: '600px',
+      width: '1200px',
+      height: '700px',
     });
 
     // After the dialog closes, recheck login status
@@ -37,17 +43,18 @@ export class HeaderComponent implements OnInit {
     console.log('Logging out');
     localStorage.removeItem('authToken'); 
     localStorage.removeItem('appointmentId');
+    this.router.navigate(['']);
     this.isLoggedIn = false; 
   }
 
   handleProfile(){
-    this.router.navigate(['profile']);
+    this.router.navigate(['/profile']);
   }
 
   handleHistory(){
-    this.router.navigate(['history']);
+    this.router.navigate(['/history']);
   }
   handleInvoice(){
-    this.router.navigate(['invoice']);
+    this.router.navigate(['/invoice']);
   }
 }

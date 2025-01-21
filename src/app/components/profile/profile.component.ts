@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,10 +12,17 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   loading = true;
 
+  // Breadcrumb navigation
+  breadcrumb = [
+    { label: 'Home', path: '' },
+    { label: 'Patient Profile', path: 'profile' }
+  ];
+
   constructor(
     private fb: FormBuilder,
     private patientService: UserServiceService,
-    private authService:UserServiceService
+    private authService: UserServiceService,
+    private router: Router
   ) {
     this.profileForm = this.fb.group({
       patientId: [{ value: '', disabled: true }],
@@ -29,10 +37,9 @@ export class ProfileComponent implements OnInit {
     this.fetchPatientInfo();
   }
 
-
   fetchPatientInfo(): void {
     const patientId = this.authService.getUserId(); 
-console.log(patientId);
+    console.log(patientId);
 
     this.patientService.getPatientInfo({ _id: patientId }).subscribe({
       next: (response: any) => {
@@ -65,5 +72,9 @@ console.log(patientId);
         }
       });
     }
+  }
+
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
   }
 }

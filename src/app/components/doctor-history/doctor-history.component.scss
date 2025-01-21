@@ -5,6 +5,7 @@
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
   
     h1 {
       text-align: center;
@@ -49,4 +50,92 @@
       font-size: 18px;
     }
   }
+  /* Breadcrumb Styles */
+.breadcrumb-container {
+    padding: 0.5rem 1rem;
+    // background-color: #f9f9f9;
+    border-radius: 8px;
+    // margin-bottom: 1.5rem;
+    display: flex;
+    width:200px;
+    gap: 0.5rem;
+    font-size: 14px;
+    margin-left: 177px;
+    margin-top: 10px;
+  }
   
+  .breadcrumb-item {
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumb-item.active {
+    color: #333;
+    cursor: default;
+    font-weight: bold;
+  }
+  
+  .breadcrumb-separator {
+    color: #6c757d;
+  }
+  
+  /* Appointment History */
+  .history-container {
+    padding: 1rem;
+  }
+  
+  .history-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: #444;
+  }
+  
+  .loading {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  .no-appointments {
+    color: #888;
+    font-style: italic;
+  }
+  
+  /* Status Colors */
+  .cured {
+    color: green;
+  }
+  
+  .not-cured {
+    color: red;
+  }
+  .historycard{
+    // border: solid black 1px;
+width: 70px;
+border-radius: 5px;
+padding: 2px;
+display: flex;
+justify-content: center;
+background-color: #f9f9f9;
+margin-left: 10px;
+font-size: 15px;
+box-shadow: 2px 2px 2px grey;
+
+margin-top: 30px;
+margin-left: 80px;
+  }
+
+
+  .border{
+    border: 1px solid #ddd;
+    width: 1420px;
+    margin-left: 84px;
+  }

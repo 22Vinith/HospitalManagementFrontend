@@ -1,56 +1,68 @@
-<div class="sign-in-cnt" style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
-    <div class="sign-in-inner-cnt">
+<div class="book-appointment-container">
+    <!-- Small card in the top-left corner -->
+
+    <div class="top-left-card">
+      <p>Book Appointment</p>
+    </div>
+    <div class="border">
+
+    </div>
+    <!-- Main content -->
+    <div class="sign-in-cnt">
+      
+      <div class="sign-in-inner-cnt">
         <div class="sign-in-hedding-cnt">
-            <p style="font-size: 48px; color: orange; font-weight: bold; ">Hospital</p>
-            <br>
-            <p style="font-size: 38px;">Book Appointment</p>
+          
+          <br />
         </div>
-        <br>
+        <br />
         <div>
-            <form [formGroup]="bookAppointmentForm" style="display: flex; flex-direction: column;">
-                <mat-form-field appearance="outline" style="width: 500px;">
-                    <mat-label>Ailment</mat-label>
-                    <input matInput formControlName="ailment" placeholder="Enter Your health isuue">
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput formControlName="date" [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-                <br>
-
-                <mat-chip-listbox aria-label="Fish selection">
-                    <mat-chip-option>10AM-1PM</mat-chip-option>
-                    <mat-chip-option>3PM-6PM</mat-chip-option>
-                    <mat-chip-option >7PM-10PM</mat-chip-option>
-                  </mat-chip-listbox>
-                  <br>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>Choose a specialization</mat-label>
-                    <mat-select formControlName="specialization"
-                        (selectionChange)="onSpecializationChange($event.value)">
-                        <mat-option *ngFor="let specialize of specializationList" [value]="specialize">
-                            {{ specialize }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>Choose a Doctor</mat-label>
-                    <mat-select formControlName="doctor_id">
-                        <mat-option *ngFor="let doctor of doctorList" [value]="doctor._id">
-                            {{ doctor.doctor_name }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-            </form>
+          <form [formGroup]="bookAppointmentForm" class="appointment-form">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Ailment</mat-label>
+              <input matInput formControlName="ailment" placeholder="Enter Your health issue" />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Choose a date</mat-label>
+              <input matInput formControlName="date" [matDatepicker]="picker" />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br />
+  
+            <mat-chip-listbox aria-label="Time selection" class="chip-list">
+              <mat-chip-option>10AM-1PM</mat-chip-option>
+              <mat-chip-option>3PM-6PM</mat-chip-option>
+              <mat-chip-option>7PM-10PM</mat-chip-option>
+            </mat-chip-listbox>
+            <br />
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Choose a specialization</mat-label>
+              <mat-select formControlName="specialization" (selectionChange)="onSpecializationChange($event.value)">
+                <mat-option *ngFor="let specialize of specializationList" [value]="specialize">
+                  {{ specialize }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Choose a Doctor</mat-label>
+              <mat-select formControlName="doctor_id">
+                <mat-option *ngFor="let doctor of doctorList" [value]="doctor._id">
+                  {{ doctor.doctor_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
         </div>
-        <br>
-        <div class="sign-in-create-acc-btn-cnt" style="display: flex; justify-content: space-between;">
-            <button mat-raised-button color="primary"  (click)="BookAppointment()">BookAppointment</button>
+        <br />
+        <div class="sign-in-create-acc-btn-cnt">
+          <button mat-raised-button color="primary" (click)="BookAppointment()">Book Appointment</button>
         </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,28 +1,54 @@
-<app-header></app-header>
-<div *ngIf="loading" class="loading-message">Loading...</div>
 
-<div *ngIf="!loading" class="invoice-container">
-  <h2>Invoice</h2>
-  
-  <div class="invoice-header">
-    <div class="invoice-detail">
-      <h3>Appointment ID: {{ bill.appointment_id }}</h3>
-      <p><strong>Doctor ID:</strong> {{ bill.doctor_id }}</p>
-      <p><strong>Prescription:</strong> {{ bill.prescription }}</p>
-      <p><strong>Invoice Amount:</strong> {{ bill.invoice }}</p>
+<!-- Layout Container -->
+<div class="main-layout">
+
+  <!-- Left Section for Small Card and Breadcrumb Navigation -->
+  <div class="left-section">
+    <!-- Small card for invoice navigation -->
+    <div class="small-card">
+      <p>Invoice</p>
+    </div>
+    <div class="border">
+    </div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-container">
+      <span
+        *ngFor="let crumb of breadcrumb; let isLast = last"
+        class="breadcrumb-item"
+        [class.active]="isLast"
+        (click)="!isLast && navigateTo(crumb.path)"
+      >
+        {{ crumb.label }}
+        <span *ngIf="!isLast" class="breadcrumb-separator">/</span>
+      </span>
+    </nav>
+  </div>
+
+  <!-- Invoice Container in the center -->
+  <div class="invoice-container">
+    <strong>Invoice</strong>
+    
+    <div class="invoice-header">
+      <div class="invoice-detail">
+        <h3>Appointment ID: {{ bill.appointment_id }}</h3>
+        <p><strong>Doctor ID:</strong> {{ bill.doctor_id }}</p>
+        <p><strong>Prescription:</strong> {{ bill.prescription }}</p>
+        <p><strong>Invoice Amount:</strong> {{ bill.invoice }}</p>
+      </div>
+      
+      <div class="date-time">
+        <p><strong>Invoice Date:</strong> {{ bill.createdAt | date: 'longDate' }}</p>
+        <p><strong>Last Updated:</strong> {{ bill.updatedAt | date: 'longDate' }}</p>
+      </div>
     </div>
     
-    <div class="date-time">
-      <p><strong>Invoice Date:</strong> {{ bill.createdAt | date: 'longDate' }}</p>
-      <p><strong>Last Updated:</strong> {{ bill.updatedAt | date: 'longDate' }}</p>
+    <hr>
+
+    <div class="invoice-footer">
+      <p><strong>Note:</strong> Please make sure to consult your doctor regularly for updates on your health.</p>
+      <p><strong>Thank you for choosing our services!</strong></p>
     </div>
   </div>
-  
-  <hr>
 
-  <div class="invoice-footer">
-    <p><strong>Note:</strong> Please make sure to consult your doctor regularly for updates on your health.</p>
-    <p><strong>Thank you for choosing our services!</strong></p>
-  </div>
 </div>
-

@@ -34,9 +34,10 @@ export class AdminHeaderComponent implements OnInit {
   handleLogout(): void {
     localStorage.removeItem('authToken');
     this.isLoggedIn = false; 
+    this.router.navigate(['adminLogin'])
   }
   handleDoctors(){
-    this.router.navigate(['getDoctor'])
+    this.router.navigate(['/getAllDoctors'])
   }
 
 

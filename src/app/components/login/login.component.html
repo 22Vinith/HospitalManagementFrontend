@@ -1,29 +1,162 @@
-<div class="sign-in-cnt">
-    <div class="sign-in-inner-cnt">
-      <div class="sign-in-hedding-cnt">
-        <p class="app-title">Hospital</p>
-        <br>
-        <p class="app-subtitle">Patient Login</p>
-      </div>
-  
-      <form [formGroup]="loginForm" class="login-form">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" placeholder="Enter your email">
-          <mat-error *ngIf="loginForm.get('email')?.invalid">Invalid email</mat-error>
+<div class="loginsignup-container">
+  <div class="loginsignup-image-card">
+    <p class="loginsignup-caption">"Hopes that comes true"</p>
+    <img
+      src="../../../assets/hospital.png"
+      alt="Hospital Login"
+      class="loginsignup-image"
+    />
+    <p class="loginsignup-caption">HOSPITAL PATIENT PORTAL</p>
+  </div>
+
+  <div class="loginsignup-form-card">
+    <div class="loginsignup-tabs">
+      <span
+        class="loginsignup-tab"
+        [class.active]="isLogin"
+        (click)="handleToggle(true)"
+      >
+        LOGIN
+      </span>
+      <span
+        class="loginsignup-tab"
+        [class.active]="!isLogin"
+        (click)="handleToggle(false)"
+      >
+        SIGNUP
+      </span>
+    </div>
+
+    <div class="loginsignup-form">
+      <!-- Login Form -->
+      <form *ngIf="isLogin" [formGroup]="loginForm">
+        <mat-form-field appearance="outline" class="full-width" >
+          <mat-label>Email Id</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            Please enter a valid email address
+          </mat-error>
         </mat-form-field>
-  
-        <mat-form-field appearance="outline" class="form-field">
+
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password" placeholder="Enter your password">
-          <mat-error *ngIf="loginForm.get('password')?.invalid">Password must be at least 6 characters</mat-error>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            Password must be at least 6 characters
+          </mat-error>
         </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="loginsignup-form-button"
+          (click)="submitLogin()"
+        >
+          Login
+        </button>
+
+        <div class="or-container">
+          <span class="or-line"></span>
+          <span class="or-text">OR</span>
+          <span class="or-line"></span>
+        </div>
+
+        <div class="social-buttons">
+          <button mat-raised-button color="accent" class="social-btn facebook-btn">
+            Facebook
+          </button>
+          <button mat-raised-button color="warn" class="social-btn google-btn">
+            Google
+          </button>
+        </div>
       </form>
-  
-      <div class="button-container" >
-        <button mat-raised-button color="primary" (click)="handleLogin()">Login</button>
-        <button mat-flat-button color="accent" (click)="handleRegister()">Create Account</button>
-      </div>
+
+      <!-- Signup Form -->
+      <form *ngIf="!isLogin" [formGroup]="signupForm">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="name"
+            placeholder="Enter your name"
+          />
+          <mat-error *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Age</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="age"
+            placeholder="Enter your age"
+          />
+          <mat-error *ngIf="signupForm.get('age')?.invalid && signupForm.get('age')?.touched">
+            Please enter a valid age
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Id</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+          />
+          <mat-error *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="phno"
+            placeholder="Enter your phone number"
+          />
+          <mat-error *ngIf="signupForm.get('phno')?.invalid && signupForm.get('phno')?.touched">
+            Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+            Password must be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="loginsignup-form-button"
+          (click)="submitSignup()"
+        >
+          Signup
+        </button>
+      </form>
     </div>
   </div>
-  
+</div>

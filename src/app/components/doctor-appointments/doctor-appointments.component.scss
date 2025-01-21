@@ -1,0 +1,26 @@
+.smallCard{
+    // border: solid black 1px;
+    width: 120px;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9; 
+    font-size: 15px;
+    box-shadow: 2px 2px 2px grey;
+    margin-top: 50px;
+    margin-left: -420px;
+}
+
+.border{
+    border: 1px solid #ddd;
+    width: 450px;
+    margin-left: -90px;
+  }
+
+.main-layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

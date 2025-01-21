@@ -1,21 +1,26 @@
 <mat-toolbar style="height: 100px; display: flex; justify-content: space-between;">
-    <span>Hospital-Management</span>
-  
-    <!-- Conditionally render the Login button or the menu -->
+    <span>YOU-HEAL MultiSpeciality Hospital</span>
+    
     <div *ngIf="!isLoggedIn">
       <button mat-raised-button color="primary" (click)="handleLogin()">Login</button>
     </div>
   
     <div *ngIf="isLoggedIn">
-      <span>Welcome, Admin!</span>
-      <button mat-button [matMenuTriggerFor]="menu">Login</button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon >account_circle</mat-icon>
+      </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="handleDoctors()">See All Doctors </button>
-        <button mat-menu-item (click)="handleLogout()">Logout</button>
-
+        <button mat-menu-item (click)="handleDoctors()">
+          <mat-icon>local_hospital</mat-icon>
+          <span>See All Doctors</span>
+        </button>
+        <button mat-menu-item (click)="handleLogout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
       </mat-menu>
+      
     </div>
   </mat-toolbar>
-  
   <router-outlet></router-outlet>
   

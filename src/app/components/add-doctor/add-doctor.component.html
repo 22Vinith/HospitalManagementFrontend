@@ -1,4 +1,7 @@
-<app-admin-header></app-admin-header>
+<div class="smallCard">
+<p>AddDoctor</p>
+</div>
+<div class="border"></div>
 <div class="add-doctor-container">
     <h2>Add Doctor</h2>
     <form [formGroup]="addDoctorForm" (ngSubmit)="onSubmit()">
@@ -13,7 +16,6 @@
         Add Doctor
       </button>
     </form>
-  
     <!-- Success or Error Message -->
     <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

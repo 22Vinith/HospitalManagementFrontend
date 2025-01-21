@@ -25,4 +25,113 @@ h3 {
   div {
     transition: all 0.3s ease-in-out;
   }
+ /* Breadcrumb Styles */
+.breadcrumb-container {
+    padding: 0.5rem 1rem;
+    // background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 120px;
+    gap: 0.5rem;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 12px;
+  }
   
+  .breadcrumb-item {
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumb-item.active {
+    color: #333;
+    cursor: default;
+    font-weight: bold;
+  }
+  
+  .breadcrumb-separator {
+    color: #6c757d;
+  }
+  
+  /* Doctor Cards */
+  .doctor-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .doctor-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: #444;
+  }
+  
+  button {
+    margin-top: 1rem;
+  }
+  
+  .appointments {
+    margin-top: 1rem;
+    background: #f9f9f9;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .appointment {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Add Doctor Button */
+  .add-doctor-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .smallCard{
+    // border: solid black 1px;
+    display: flex;
+    justify-content: center;
+width: 100px;
+border-radius: 5px;
+padding: 2px;
+background-color: #f9f9f9;
+margin-left: -90px;
+font-size: 15px;
+box-shadow: 2px 2px 2px grey;
+margin-top: 30px;
+  }
+
+  .border{
+    border: 1px solid #ddd;
+    width: 1135px;
+    margin-left: -87px;
+  }
+
+.main-layout{
+  margin-left: 330px;
+  margin-right: 200px;
+}

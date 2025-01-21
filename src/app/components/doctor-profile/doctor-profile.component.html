@@ -1,5 +1,22 @@
 
-<app-doctor-header></app-doctor-header>
+<div class="profilecard">
+  <p>profile</p>
+</div>
+<div class="border"></div>
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb-container">
+  <span
+    *ngFor="let crumb of breadcrumb; let isLast = last"
+    class="breadcrumb-item"
+    [class.active]="isLast"
+    (click)="!isLast && navigateTo(crumb.path)"
+  >
+    {{ crumb.label }}
+    <span *ngIf="!isLast" class="breadcrumb-separator">/</span>
+  </span>
+</nav>
+
+<!-- Profile Container -->
 <div class="profile-container">
   <h1>Doctor Profile</h1>
 

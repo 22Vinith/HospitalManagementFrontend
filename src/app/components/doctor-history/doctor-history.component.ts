@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-history',
@@ -10,7 +11,16 @@ export class DoctorHistoryComponent implements OnInit {
   appointments: any[] = [];
   loading: boolean = true;
 
-  constructor(private appointmentService: UserServiceService) {}
+  // Breadcrumb navigation
+  breadcrumb = [
+    { label: 'Home', path: 'appointments' },
+    { label: 'Doctor History', path: '/doctorHistory' }
+  ];
+
+  constructor(
+    private appointmentService: UserServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.fetchAppointments();
@@ -36,5 +46,8 @@ export class DoctorHistoryComponent implements OnInit {
       },
     });
   }
-  
+
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
+  }
 }

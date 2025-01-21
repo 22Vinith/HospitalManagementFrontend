@@ -1,4 +1,4 @@
-import { Component, Optional } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
@@ -10,8 +10,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  signupForm!: FormGroup;
+  isLogin = true;
+  error = '';
 
   constructor(
     private userService: UserServiceService,
@@ -21,19 +24,45 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
+    this.initializeForms();
+  }
+
+  initializeForms() {
+    // Login Form
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
+
+    // Signup Form
+    this.signupForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required, Validators.min(1)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phno: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]{10}$') // Validates a 10-digit phone number
+      ]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
   }
 
-  handleLogin(): void {
+  handleToggle(isLogin: boolean): void {
+    this.isLogin = isLogin;
+    this.error = '';
+  }
+
+  handleSubmit(): void {
+    if (this.isLogin) {
+      this.submitLogin();
+    } else {
+      this.submitSignup();
+    }
+  }
+
+  submitLogin(): void {
     if (this.loginForm.invalid) {
-      this.snackBar.open('Please enter valid email and password!', 'Close', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
+      this.error = 'Please fill all required fields correctly.';
       return;
     }
 
@@ -43,31 +72,44 @@ export class LoginComponent {
       next: (res: any) => {
         localStorage.setItem('authToken', res.token);
         this.router.navigate(['home']);
-        this.snackBar.open('Login successful!', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-
+        this.showSnackBar('Login successful!');
         if (this.dialogRef) {
           this.dialogRef.close();
         }
       },
       error: (err: any) => {
         console.error(err);
-        this.snackBar.open('Login failed. Please check your credentials.', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      },
+        this.showSnackBar('Login failed. Please check your credentials.');
+      }
     });
   }
 
-  handleRegister(): void {
-    this.router.navigate(['']);
-    if (this.dialogRef) {
-      this.dialogRef.close();
+  submitSignup(): void {
+    if (this.signupForm.invalid) {
+      this.error = 'Please fill all required fields correctly.';
+      return;
     }
+
+    const { name, age, email, phno, password } = this.signupForm.value;
+
+    this.userService.registerApiCall({ name, age, email, phno, password }).subscribe({
+      next: (res: any) => {
+        this.showSnackBar('Registration successful! Please login.');
+        this.isLogin = true;
+      },
+      error: (err: any) => {
+        console.error(err);
+        this.showSnackBar('Registration failed. Please try again.');
+      }
+    });
+  }
+
+
+  private showSnackBar(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
   }
 }

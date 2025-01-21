@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
 
 @Component({
@@ -11,13 +11,20 @@ export class InvoiceComponent implements OnInit {
   bill: any = {}; // Holds the bill data
   loading: boolean = true;
 
+  // Breadcrumb Navigation
+  breadcrumb = [
+    { label: 'Home', path: '' },
+    { label: 'Invoice', path: 'invoice' }
+  ];
+
   constructor(
     private route: ActivatedRoute,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    const appointmentId = localStorage.getItem('appointmentId')
+    const appointmentId = localStorage.getItem('appointmentId');
     if (appointmentId) {
       this.fetchBillDetails(appointmentId);
     }
@@ -25,7 +32,7 @@ export class InvoiceComponent implements OnInit {
 
   fetchBillDetails(appointmentId: string): void {
     // Assuming we have an API to get the bill by appointment ID
-    this.userService.getBillDetails({ _id: appointmentId}).subscribe({
+    this.userService.getBillDetails({ _id: appointmentId }).subscribe({
       next: (response: any) => {
         this.bill = response.bill;
         this.loading = false;
@@ -35,5 +42,9 @@ export class InvoiceComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
   }
 }

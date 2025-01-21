@@ -1,27 +1,54 @@
-<app-header></app-header>
-<div *ngIf="loading" class="loading-message">Loading...</div>
-<div *ngIf="!loading && appointments.length === 0" class="no-data-message">
-  No appointments found for this patient.
-</div>
-<div *ngIf="!loading && appointments.length > 0">
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let appointment of appointments" hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Appointment ID: {{ appointment._id }}
-        </mat-panel-title>
-        <mat-panel-description>
-          Specialization: {{ appointment.specialization }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="appointment-details">
-        <p><strong>Ailment:</strong> {{ appointment.ailment }}</p>
-        <p><strong>Doctor ID:</strong> {{ appointment.doctor_id }}</p>
-        <p><strong>Created At:</strong> {{ appointment.createdAt | date: 'medium' }}</p>
-        <p><strong>Updated At:</strong> {{ appointment.updatedAt | date: 'medium' }}</p>
-        <p><strong>Ailment Status:</strong> {{ appointment.ailment_status ? 'Resolved' : 'Pending' }}</p>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
 
+<!-- Main Page Container -->
+<div class="page-container">
+
+  <!-- Small card for navigation -->
+  <div class="small-card">
+    <p>Appointment History</p>
+  </div>
+  <div class="border">
+  </div>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-container">
+    <span
+      *ngFor="let crumb of breadcrumb; let isLast = last"
+      class="breadcrumb-item"
+      [class.active]="isLast"
+      (click)="!isLast && navigateTo(crumb.path)"
+    >
+      {{ crumb.label }}
+      <span *ngIf="!isLast" class="breadcrumb-separator">/</span>
+    </span>
+  </nav>
+
+  <!-- Loading or No Data Message -->
+  <div *ngIf="loading" class="loading-message">Loading...</div>
+  <div *ngIf="!loading && appointments.length === 0" class="no-data-message">
+    No appointments found for this patient.
+  </div>
+
+  <!-- Appointment History -->
+  <div *ngIf="!loading && appointments.length > 0">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let appointment of appointments" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Appointment ID: {{ appointment._id }}
+          </mat-panel-title>
+          <mat-panel-description>
+            Specialization: {{ appointment.specialization }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="appointment-details">
+          <p><strong>Ailment:</strong> {{ appointment.ailment }}</p>
+          <p><strong>Doctor Name:</strong> {{ appointment.doctor_name }}</p>
+          <p><strong>Created At:</strong> {{ appointment.createdAt | date: 'medium' }}</p>
+          <p><strong>Updated At:</strong> {{ appointment.updatedAt | date: 'medium' }}</p>
+          <p><strong>Ailment Status:</strong> {{ appointment.ailment_status ? 'Resolved' : 'Pending' }}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+</div>

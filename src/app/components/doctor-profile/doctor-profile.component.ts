@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/service/userService/user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -11,12 +12,18 @@ export class DoctorProfileComponent implements OnInit {
   profileForm: FormGroup;
   loading = true;
 
+  // Breadcrumb navigation
+  breadcrumb = [
+    { label: 'Home', path: 'appointments' },
+    { label: 'Profile', path: 'doctorProfile' }
+  ];
+
   constructor(
     private fb: FormBuilder,
     private doctorService: UserServiceService,
-    private authService: UserServiceService
+    private authService: UserServiceService,
+    private router: Router
   ) {
-    // Initializing the form group
     this.profileForm = this.fb.group({
       doctorId: [{ value: '', disabled: true }],
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -29,9 +36,10 @@ export class DoctorProfileComponent implements OnInit {
     this.fetchDoctorInfo();
   }
 
+  // Fetch doctor information
   fetchDoctorInfo(): void {
-    const doctorId = this.authService.getUserId(); 
-console.log(doctorId);
+    const doctorId = this.authService.getUserId();
+    console.log(doctorId);
 
     this.doctorService.getDoctorInfo({ _id: doctorId }).subscribe({
       next: (response: any) => {
@@ -47,16 +55,17 @@ console.log(doctorId);
     });
   }
 
+  // Navigate to breadcrumb paths
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
+  }
+
   // Handle profile update
   onSubmit(): void {
     if (this.profileForm.valid) {
-      // Extract values, including disabled fields
-      const { doctorId, name, email, specialization } = this.profileForm.getRawValue();
-  
-      // Create the payload with only fields to be updated
+      const { doctorId, name } = this.profileForm.getRawValue();
       const updatePayload = { _id: doctorId, doctor_name: name };
-  
-      // Call the update service
+
       this.doctorService.updateDoctorInfo(updatePayload).subscribe({
         next: (response: any) => {
           console.log('Update response:', response);
@@ -69,5 +78,4 @@ console.log(doctorId);
       });
     }
   }
-  
 }
