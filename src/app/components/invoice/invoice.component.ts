@@ -26,6 +26,7 @@ export class InvoiceComponent implements OnInit {
   ngOnInit(): void {
     const appointmentId = localStorage.getItem('appointmentId');
     if (appointmentId) {
+      console.log(appointmentId);
       this.fetchBillDetails(appointmentId);
     }
   }
@@ -34,6 +35,7 @@ export class InvoiceComponent implements OnInit {
     // Assuming we have an API to get the bill by appointment ID
     this.userService.getBillDetails({ _id: appointmentId }).subscribe({
       next: (response: any) => {
+        console.log(response);
         this.bill = response.bill;
         this.loading = false;
       },

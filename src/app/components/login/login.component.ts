@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -31,7 +31,10 @@ export class LoginComponent implements OnInit {
     // Login Form
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
     });
 
     // Signup Form
@@ -41,9 +44,12 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       phno: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]{10}$') // Validates a 10-digit phone number
+        Validators.pattern('^[0-9]{10}$'), 
       ]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
     });
   }
 
@@ -70,8 +76,8 @@ export class LoginComponent implements OnInit {
 
     this.userService.loginApiCall({ email, password }).subscribe({
       next: (res: any) => {
+        console.log(res);
         localStorage.setItem('authToken', res.token);
-        this.router.navigate(['home']);
         this.showSnackBar('Login successful!');
         if (this.dialogRef) {
           this.dialogRef.close();
@@ -80,7 +86,7 @@ export class LoginComponent implements OnInit {
       error: (err: any) => {
         console.error(err);
         this.showSnackBar('Login failed. Please check your credentials.');
-      }
+      },
     });
   }
 
@@ -92,18 +98,19 @@ export class LoginComponent implements OnInit {
 
     const { name, age, email, phno, password } = this.signupForm.value;
 
-    this.userService.registerApiCall({ name, age, email, phno, password }).subscribe({
-      next: (res: any) => {
-        this.showSnackBar('Registration successful! Please login.');
-        this.isLogin = true;
-      },
-      error: (err: any) => {
-        console.error(err);
-        this.showSnackBar('Registration failed. Please try again.');
-      }
-    });
+    this.userService
+      .registerApiCall({ name, age, email, phno, password })
+      .subscribe({
+        next: (res: any) => {
+          this.showSnackBar('Registration successful! Please login.');
+          this.isLogin = true;
+        },
+        error: (err: any) => {
+          console.error(err);
+          this.showSnackBar('Registration failed. Please try again.');
+        },
+      });
   }
-
 
   private showSnackBar(message: string): void {
     this.snackBar.open(message, 'Close', {

@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
   handleLogout(): void {
     console.log('Logging out');
     localStorage.removeItem('authToken');
-    localStorage.removeItem('appointmentId');
+    // localStorage.removeItem('appointmentId');
     this.router.navigate(['']);
     this.isLoggedIn = false;
   }

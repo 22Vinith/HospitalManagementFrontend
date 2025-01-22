@@ -120,7 +120,7 @@
   .historycard{
     // border: solid black 1px;
 width: 70px;
-border-radius: 5px;
+border-radius: 8px 8px 0px 0px;
 padding: 2px;
 display: flex;
 justify-content: center;
@@ -137,5 +137,5 @@ margin-left: 80px;
   .border{
     border: 1px solid #ddd;
     width: 1420px;
-    margin-left: 84px;
+    margin-left: 80px;
   }
